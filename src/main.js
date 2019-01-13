@@ -10,7 +10,7 @@ Vue.config.productionTip = false
 Vue.prototype.$lv = {
     $router: router,
     go(path, param) {
-        import('src/page' + path + '.vue').then(module => {
+        import('src/page' + path + '-page.vue').then(module => {
             this.$router.options.routes.push({
                 name: path,
                 path: path,

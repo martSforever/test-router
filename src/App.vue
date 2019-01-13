@@ -22,7 +22,7 @@
         },
         methods: {
             go() {
-                this.$lv.go('/student/student-page')
+                this.$lv.go('/student/student')
             },
         }
     }
