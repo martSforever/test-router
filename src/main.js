@@ -9,16 +9,25 @@ Vue.config.productionTip = false
 
 Vue.prototype.$lv = {
     $router: router,
-    go(path, param) {
-        import('src/page' + path + '-page.vue').then(module => {
-            this.$router.options.routes.push({
-                name: path,
-                path: path,
-                component: module.default
+    go(path, query) {
+        /*路由跳转*/
+        const next = () => this.$router.push({path, query})
+        if (this.$router.options.routes.some(route => route.name === path)) {
+            next()
+        } else {
+            /*页面分开打包，按需加载*/
+            import('src/page' + path + '-page.vue').then(module => {
+                const route = {
+                    name: path,
+                    path: path,
+                    component: module.default
+                }
+                /*添加路由信息*/
+                this.$router.options.routes.push(route)
+                this.$router.addRoutes([route])
+                next()
             })
-            this.$router.addRoutes(this.$router.options.routes)
-        })
-        this.$router.push(path, param)
+        }
     },
     back() {
         window.history.back()

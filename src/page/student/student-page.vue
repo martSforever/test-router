@@ -1,12 +1,23 @@
 <template>
     <div class="student-page">
-        student-page
+        学生主页,name==>>{{name}}
     </div>
 </template>
 
 <script>
     export default {
-        name: "student-page"
+        name: "student-page",
+        data() {
+            return {
+                name: null
+            }
+        },
+        mounted() {
+            this.name = this.$route.query.name
+        },
+        destroyed() {
+            console.log('student destroyed')
+        },
     }
 </script>
 

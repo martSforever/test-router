@@ -1,6 +1,6 @@
 <template>
     <div class="teacher-page">
-        teacher-page
+        老师主页
     </div>
 </template>
 
