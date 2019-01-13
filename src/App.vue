@@ -2,9 +2,9 @@
     <div id="app">
         <div class="header">
             <!--这里可以理解为从后台数据库中配置的菜单地址，无需注册-->
-            <button @click="$lv.go('/student/student',{name:'hello world'})">打开学生页面</button>
-            <button @click="$lv.go('/student/student-detail')">打开学生详情页面</button>
-            <button @click="$lv.go('/teacher/teacher')">打开老师页面</button>
+            <button @click="$lv.push('/student/student',{name:'hello world'})">打开学生页面</button>
+            <button @click="$lv.push('/student/student-detail')">打开学生详情页面</button>
+            <button @click="$lv.push('/teacher/teacher')">打开老师页面</button>
         </div>
         <div class="page">
 
@@ -27,6 +27,7 @@
         components: {
             HelloWorld
         },
+
     }
 </script>
 
