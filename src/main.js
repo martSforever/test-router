@@ -15,7 +15,7 @@ Vue.prototype.$lv = {
         if (this.$router.options.routes.some(route => route.name === path)) {
             next()
         } else {
-            /*页面分开打包，按需加载*/
+            /*页面分开打包，按需加载，只打包以page结尾的.vue文件，不以page结尾的表示页面公共的组件，分开打包，按需引入*/
             import('src/page' + path + '-page.vue').then(module => {
                 const route = {
                     name: path,
